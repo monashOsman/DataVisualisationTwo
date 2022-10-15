@@ -2,7 +2,7 @@
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "title": "Proportion Coalition and Labor Votes by States (2022 Federal Elections)",
   "data": {
-    "url": "https://raw.githubusercontent.com/monashOsman/SampleRep/main/data/electionresults17.csv"
+    "url": "https://raw.githubusercontent.com/monashOsman/WeekTen/main/data/electionresults17.csv"
   },
   "params": [
     {
@@ -110,7 +110,7 @@
           "layer": [
             {
               "data": {
-                "url": "https://raw.githubusercontent.com/monashOsman/SampleRep/main/js/STE_2021_AUST_GDA2020.topojson",
+                "url": "https://raw.githubusercontent.com/monashOsman/WeekTen/main/js/STE_2021_AUST_GDA2022.json",
                 "format": {
                   "type": "topojson",
                   "feature": "STE_2021_AUST_GDA2020"
@@ -124,12 +124,39 @@
             },
             {
               "data": {
-                "url": "https://raw.githubusercontent.com/monashOsman/SampleRep/main/data/electionresults.csv"
+                "url": "https://raw.githubusercontent.com/monashOsman/WeekTen/main/data/electionresults.csv"
               },
-              "mark": {"type": "circle", "tooltip": {"content": "data"}},
+              "mark": {"type": "circle"},
               "encoding": {
                 "latitude": {"field": "Longitude", "type": "quantitative"},
                 "longitude": {"field": "Latitude", "type": "quantitative"},
+                "tooltip": [
+                  {"field": "State", "type": "nominal"},
+                  {
+                    "field": "Coalition",
+                    "type": "quantitative",
+                    "format": ",",
+                    "title": "% Coalition Votes"
+                  },
+                  {
+                    "field": "Labor",
+                    "type": "quantitative",
+                    "format": ",",
+                    "title": "% Labor Votes"
+                  },
+                  {
+                    "field": "Greens",
+                    "type": "quantitative",
+                    "format": ",",
+                    "title": "% Greens Votes"
+                  },
+                  {
+                    "field": "Percentage Coalition Votes",
+                    "type": "quantitative",
+                    "format": ",",
+                    "title": "Coalition votes vs. Labor (%)"
+                  }
+                ],
                 "size": {
                   "field": "Greens",
                   "type": "quantitative",
@@ -139,7 +166,7 @@
                 "color": {
                   "field": "Percentage Coalition Votes",
                   "type": "quantitative",
-                  "title": "Percentage of Coalition votes",
+                  "title": "Percentage Coalition votes",
                   "scale": {"scheme": "redblue"}
                 }
               }
