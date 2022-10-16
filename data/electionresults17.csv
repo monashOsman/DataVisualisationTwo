@@ -1,9 +1,9 @@
 State,Coalition,Labour,WeeklyIncome,IncomeRank,UniversityGraduatesPerc,Latitude,Longitude,Majority_Party
-Victoria,50.2,49.8,1500,5,35.2,505,-37,Neutral
-New South Wales,52.5,47.5,1540,4,34.3,510,-33.5,Coalition
-Australian Capital Territory,37.1,62.9,1760,1,45.8,508,-35.5,Labor
-Queensland,59.1,40.9,1480,6,24.9,510,-25,Coalition
-Northern Territory,43.5,56.5,1600,2,29.4,495,-20,Labor
-Western Australia,48.6,51.4,1600,2,27.2,480,-32,Neutral
-South Australia,50.8,49.2,1426,7,25.8,497,-32,Neutral
-Tasmania,54.7,45.3,1300,8,26,506,-42,Coalition
+Victoria,51.1,48.9,1500,5,35.2,505,-37,Neutral
+New South Wales,55.2,44.8,1540,4,34.3,510,-33.5,Coalition
+Australian Capital Territory,43.3,56.7,1760,1,45.8,508,-35.5,Labor
+Queensland,62.1,37.9,1480,6,24.9,510,-25,Coalition
+Northern Territory,47,53,1600,2,29.4,495,-20,Labor
+Western Australia,60.2,39.8,1600,2,27.2,480,-32,Coalition
+South Australia,53.6,46.4,1426,7,25.8,497,-32,Coalition
+Tasmania,50.7,49.3,1300,8,26,506,-42,Neutral
