@@ -1,10 +1,9 @@
-State,STE_CODE21,Coalition,Labor,Greens,Percentage Coalition Votes,Latitude,Longitude,coa,Perc Lab Votes,lab,,
-Victoria,"""2""",42,41,17,50,505,-37,0.12594,50,0.12407,,
-New South Wales,"""1""",46,41,13,52,510,-34,0.13098,48,0.11911,,
-Australian Capital Territory,"""8""",29,50,21,37,508,-36,0.09320,63,0.15633,,
-Queensland,"""3""",50,34,16,59,510,-25,0.14861,41,0.10174,,
-Northern Territory,"""7""",36,47,16,44,495,-20,0.11083,56,0.13896,,
-Western Australia,"""5""",41,44,15,49,480,-32,0.12343,51,0.12655,,
-South Australia,"""4""",43,42,15,51,497,-32,0.12846,49,0.12159,,
-Tasmania,"""6""",46,38,17,55,506,-42,0.13854,45,0.11166,,
-,,,,,,,,,,,,
+State,STE_CODE21,Coalition,Labor,Greens,Percentage Coalition Votes,Latitude,Longitude,coa,Perc Lab Votes,lab
+Victoria,"""2""",42,41,17,50,505,-37,0.12594,50,0.12407
+New South Wales,"""1""",46,41,13,52,510,-34,0.13098,48,0.11911
+Australian Capital Territory,"""8""",29,50,21,37,508,-36,0.0932,63,0.15633
+Queensland,"""3""",50,34,16,59,510,-25,0.14861,41,0.10174
+Northern Territory,"""7""",36,47,16,44,495,-20,0.11083,56,0.13896
+Western Australia,"""5""",41,44,15,49,480,-32,0.12343,51,0.12655
+South Australia,"""4""",43,42,15,51,497,-32,0.12846,49,0.12159
+Tasmania,"""6""",46,38,17,55,506,-42,0.13854,45,0.11166
