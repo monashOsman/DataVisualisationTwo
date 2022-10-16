@@ -21,173 +21,508 @@
     {
       "hconcat": [
         {
-            "data": {"values": [{}]},
-            "mark": {
-              "type": "text",
-              "align": "left",
-              "baseline": "top",
-              "text": [
-                "The Bubble Chart depicts how income may be negatively",
-                "correlated with income..."
-              ],
-              "dx": 0,
-              "dy": 78
-            }
-          },        {
-        "width": 500,
-        "height": 400,
-        "title": "Percentage Party Preferences by States and Territories",
-        "projection": {"type": "Mercator"},
-        "layer": [
-          {
-            "data": {
-              "url": "https://raw.githubusercontent.com/monashOsman/DataVisualisationTwo/main/js/STE_2021_AUST_GDA2022.json",
-              "format": {
-                "type": "topojson",
-                "feature": "STE_2021_AUST_GDA2020"
+          "data": {"values": [{}]},
+          "mark": {
+            "type": "text",
+            "align": "left",
+            "baseline": "top",
+            "text": [
+              "Note that even though the visualisations assume first preferences",
+              "as a measure of a party's interest, Australia uses a preferential voing",
+              "voting system, so that more than only first preferences need to be",
+              "considered when a new government is elected in reality.",
+              "-",
+              "-",
+              "The map on the right gives an overview for the states and their pref-",
+              "erred parties, for the three major parties: The Coalition, Australian",
+              "Labor Party (ALP), and The Greens, in the recent 2022 federal elec-.",
+              "tions. However, throughtout the visualisation, The Greens may be",
+              "referred to as a minor party relative to the other two major parties.",
+              "Note that to resemble the party's colour, as a state is a darker shade",
+              "of red or blue, said state has voted proportionally more for ALP or",
+              "The Coalition respectively",
+              "-",
+              "As has been the case for the last couple of elections, states",
+              "have predominantly stuck with their original preferences. For",
+              "instance, New South Wales (NSW) in contrast to Victoria, is a",
+              "much more right-leaning state, hence observing quite a high",
+              "proportion of Coalition votes as before. Victoria on the other",
+              "hand, was more likely to vote for the liberal (left) parties,",
+              "with majority votes cast to the ALP and a decent amount to The",
+              "Greens, of which NSW had a lower vote count for a minor party",
+              "like The Greens."
+            ],
+            "dx": 25,
+            "dy": 40
+          }
+        },
+        {
+          "width": 500,
+          "height": 400,
+          "title": "Percentage Party Preferences by States and Territories",
+          "projection": {"type": "Mercator"},
+          "layer": [
+            {
+              "data": {
+                "url": "https://raw.githubusercontent.com/monashOsman/DataVisualisationTwo/main/js/STE_2021_AUST_GDA2020.topojson.txt",
+                "format": {
+                  "type": "topojson",
+                  "feature": "STE_2021_AUST_GDA2020"
+                }
+              },
+              "mark": {
+                "type": "geoshape",
+                "fill": "lightgray",
+                "stroke": "white"
               }
             },
-            "mark": {
-              "type": "geoshape",
-              "fill": "lightgray",
-              "stroke": "white"
-            }
-          },
-          {
-            "data": {
-              "url": "https://raw.githubusercontent.com/monashOsman/DataVisualisationTwo/main/data/electionresults.csv"
-            },
-            "mark": {"type": "circle"},
-            "encoding": {
-              "latitude": {"field": "Longitude", "type": "quantitative"},
-              "longitude": {"field": "Latitude", "type": "quantitative"},
-              "tooltip": [
-                {"field": "State", "type": "nominal"},
-                {
-                  "field": "Coalition",
-                  "type": "quantitative",
-                  "format": ",",
-                  "title": "% Coalition Votes"
-                },
-                {
-                  "field": "Labor",
-                  "type": "quantitative",
-                  "format": ",",
-                  "title": "% Labor Votes"
-                },
-                {
+            {
+              "data": {
+                "url": "https://raw.githubusercontent.com/monashOsman/DataVisualisationTwo/main/data/electionresults99.csv"
+              },
+              "mark": {"type": "circle"},
+              "encoding": {
+                "latitude": {"field": "Longitude", "type": "quantitative"},
+                "longitude": {"field": "Latitude", "type": "quantitative"},
+                "tooltip": [
+                  {"field": "State", "type": "nominal"},
+                  {
+                    "field": "Coalition",
+                    "type": "quantitative",
+                    "format": ",",
+                    "title": "% Coalition Votes"
+                  },
+                  {
+                    "field": "Labor",
+                    "type": "quantitative",
+                    "format": ",",
+                    "title": "% Labor Votes"
+                  },
+                  {
+                    "field": "Greens",
+                    "type": "quantitative",
+                    "format": ",",
+                    "title": "% Greens Votes"
+                  },
+                  {
+                    "field": "Percentage Coalition Votes",
+                    "type": "quantitative",
+                    "format": ",",
+                    "title": "Coalition votes vs. Labor (%)"
+                  }
+                ],
+                "size": {
                   "field": "Greens",
                   "type": "quantitative",
-                  "format": ",",
-                  "title": "% Greens Votes"
+                  "title": "Greens votes (%)",
+                  "scale": {
+                    "type": "threshold",
+                    "domain": [12, 15],
+                    "range": [165, 260, 395]
+                  }
                 },
-                {
+                "color": {
                   "field": "Percentage Coalition Votes",
                   "type": "quantitative",
-                  "format": ",",
-                  "title": "Coalition votes vs. Labor (%)"
+                  "title": "Coalition votes (%)",
+                  "scale": {"scheme": "redblue"}
                 }
-              ],
-              "size": {
-                "field": "Greens",
-                "type": "quantitative",
-                "title": "Percentage of Greens votes",
-                "scale": {"domain": [12, 20]}
-              },
-              "color": {
-                "field": "Percentage Coalition Votes",
-                "type": "quantitative",
-                "title": "Percentage Coalition votes",
-                "scale": {"scheme": "redblue"}
               }
             }
-          }
-        ]
-      }
+          ]
+        }
       ]
     },
     {
-        "width": 500,
-        "height": 325,
-        "title": "Proportion Coalition and Labor Votes by States (2022 Federal Elections)",
-        "layer": [
-          {
-            "mark": "circle",
-            "encoding": {
-              "x": {
-                "field": "Coalition",
-                "type": "quantitative",
-                "title": "Percentage Coalition Votes",
-                "scale": {"domain": [15, 75]}
+      "hconcat": [
+        {
+          "data": {"values": [{}]},
+          "mark": {
+            "type": "text",
+            "align": "left",
+            "baseline": "top",
+            "text": [
+              "The grouped bar charts depicts the percentage breakdown of how",
+              "much each state/territory contributed to either The Coalition's or",
+              "ALP's vote count, relative to their population. Note that each state's",
+              "bar chart sums to 100% as expected.",
+              "-",
+              "The visual provides an easy portrayal of the states from which",
+              "either major party received proportionally a great/low amount of",
+              "their total votes. As an example, Australian Capital Territory (ACT),",
+              "relative to other states, was responsible for the greatest proportion",
+              "of Labor votes over The Coalition (16%). On the other hand, Queen-",
+              "slanders were the state most likely to vote for The Coalition (15% of",
+              "votes).",
+              "-",
+              "The most neutral state (swing state) was Victoria, with similar votes",
+              "to either major party. Therefore, it might be a good idea for future can-",
+              "didates to spend more time trying to win over Victorian voters, as it is",
+              "the most elastic state, in terms of accepting change. "
+            ],
+            "dx": 25,
+            "dy": 25
+          }
+        },
+        {
+          "width": 425,
+          "height": 300,
+          "title": "Proportion of States' Contributions to Coalition & ALP Votes per Capita",
+          "data": {
+            "values": [
+              {"category": "Victoria", "State/Territory": "Labor", "value": 12},
+              {
+                "category": "Victoria",
+                "State/Territory": "Coalition",
+                "value": 13
               },
-              "y": {
-                "field": "WeeklyIncome",
-                "type": "quantitative",
-                "title": "Weekly Income ($)",
-                "scale": {"domain": [800, 2000]}
+              {
+                "category": "New South Wales",
+                "State/Territory": "Labor",
+                "value": 12
               },
-              "color": {"field": "State", "type": "nominal"},
-              "size": {
-                "field": "UniversityGraduatesPerc",
-                "title": "University Graduates (%)",
-                "type": "quantitative",
-                "scale": {
-                  "type": "threshold",
-                  "domain": [25, 30, 35, 40],
-                  "range": [65, 150, 200, 350, 490]
+              {
+                "category": "New South Wales",
+                "State/Territory": "Coalition",
+                "value": 13
+              },
+              {
+                "category": "Australian Capital Territory",
+                "State/Territory": "Labor",
+                "value": 16
+              },
+              {
+                "category": "Australian Capital Territory",
+                "State/Territory": "Coalition",
+                "value": 9
+              },
+              {
+                "category": "Queensland",
+                "State/Territory": "Labor",
+                "value": 10
+              },
+              {
+                "category": "Queensland",
+                "State/Territory": "Coalition",
+                "value": 15
+              },
+              {
+                "category": "Northern Territory",
+                "State/Territory": "Labor",
+                "value": 14
+              },
+              {
+                "category": "Northern Territory",
+                "State/Territory": "Coalition",
+                "value": 11
+              },
+              {
+                "category": "Western Australia",
+                "State/Territory": "Labor",
+                "value": 13
+              },
+              {
+                "category": "Western Australia",
+                "State/Territory": "Coalition",
+                "value": 12
+              },
+              {
+                "category": "South Australia",
+                "State/Territory": "Labor",
+                "value": 12
+              },
+              {
+                "category": "South Australia",
+                "State/Territory": "Coalition",
+                "value": 13
+              },
+              {"category": "Tasmania", "State/Territory": "Labor", "value": 11},
+              {
+                "category": "Tasmania",
+                "State/Territory": "Coalition",
+                "value": 14
+              }
+            ]
+          },
+          "mark": "bar",
+          "encoding": {
+            "y": {"field": "category", "title": "State/Territory"},
+            "x": {
+              "field": "value",
+              "title": "Percentage Contribution to Party's Votes",
+              "type": "quantitative"
+            },
+            "yOffset": {"field": "State/Territory"},
+            "color": {
+              "field": "State/Territory",
+              "scale": {
+                "domain": ["Labor", "Coalition"],
+                "range": ["#EB4522", "#2F56F3"]
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "hconcat": [
+        {
+          "data": {"values": [{}]},
+          "mark": {
+            "type": "text",
+            "align": "left",
+            "baseline": "top",
+            "text": [
+              "The parallel line charts show the two most loyal states, in which ",
+              "Queensland was consistently most likely to vote for The Coalition",
+              "in Federal Elections from 2013 to 2022. In constrast Australian Capital",
+              "Territory was most likely to vote for Labor in the same time period,",
+              "with the votes ranging from 66% in 2013 to 67% in 2022 (the complim-",
+              "ent of the vertical values).",
+              "-",
+              "In contrast to the swing state discussed in the bar chart, ACT and ",
+              "Queensland are much less flexible in adjusting their voting pattern",
+              "during federal elections. The implications of this include the extra",
+              "effort required to win over these states as the opposition, compared",
+              "to a more neutral state like Victoria. Therefore, leaders should be",
+              "more confident they can already win such states and perhaps limit the",
+              "time and money they allocate to these regions, focusing more instead on",
+              "the swing states."
+            ],
+            "dx": 25,
+            "dy": 0
+          }
+        },
+        {
+          "width": 450,
+          "height": 225,
+          "title": "Percentage Votes for The Coalition/Labor for Loyal States 2013-2022",
+          "data": {
+            "url": "https://raw.githubusercontent.com/monashOsman/DataVisualisationTwo/main/data/Loyal_States.csv"
+          },
+          "encoding": {
+            "color": {
+              "field": "State",
+              "type": "nominal",
+              "scale": {
+                "domain": [
+                  "ACT | Labor Majority",
+                  "QLD | Coalition Majority",
+                  "| 50% LINE |"
+                ],
+                "range": ["#EB4522", "#2F56F3", "#863FF3"]
+              },
+              "legend": null
+            }
+          },
+          "layer": [
+            {
+              "mark": "line",
+              "encoding": {
+                "x": {"field": "Date", "type": "temporal", "title": "Year"},
+                "y": {
+                  "field": "PercCoal",
+                  "type": "quantitative",
+                  "title": "Coalition Votes (%)"
+                }
+              }
+            },
+            {
+              "encoding": {
+                "x": {"aggregate": "max", "field": "Date", "type": "temporal"},
+                "y": {
+                  "aggregate": {"argmax": "Date"},
+                  "field": "PercCoal",
+                  "type": "quantitative"
                 }
               },
-              "tooltip": [
-                {"field": "State", "type": "nominal"},
+              "layer": [
+                {"mark": {"type": "circle"}},
                 {
-                  "field": "WeeklyIncome",
-                  "type": "quantitative",
-                  "format": ",",
-                  "title": "Weekly Income"
-                },
-                {
-                  "field": "IncomeRank",
-                  "type": "nominal",
-                  "format": ",",
-                  "title": "Income Rank /8"
-                },
-                {
-                  "field": "UniversityGraduatesPerc",
-                  "type": "quantitative",
-                  "format": ",",
-                  "title": "% Uni. Graduates"
-                },
-                {
-                  "field": "Coalition",
-                  "type": "nominal",
-                  "format": ",",
-                  "title": "Coalition Votes (%)"
-                },
-                {
-                  "field": "Labour",
-                  "type": "nominal",
-                  "format": ",",
-                  "title": "Labor Votes (%)"
+                  "mark": {"type": "text", "align": "left", "dx": 4},
+                  "encoding": {"text": {"field": "State", "type": "nominal"}}
                 }
               ]
             }
-          },
-          {
-            "data": {"values": [{}]},
-            "mark": {
-              "type": "text",
-              "align": "left",
-              "baseline": "bottom",
-              "text": [
-                "The Bubble Chart depicts how income may be negatively",
-                "correlated with income..."
-              ],
-              "dx": 0,
-              "dy": 225
-            }
+          ]
+        }
+      ]
+    },
+    {
+      "hconcat": [
+        {
+          "data": {"values": [{}]},
+          "mark": {
+            "type": "text",
+            "align": "left",
+            "baseline": "top",
+            "text": [
+              "As a final dimension to consider, the bubble chart brings together various",
+              "attributes that are often argued to be related to voters' preferences. If you",
+              "were to group the states based on their proximity, you'll notice that most  ",
+              "circles will be part of the same group of colours they've already been",
+              "assigned based on majority party, indicating that the plotted attribute",
+              "'Weekly Income' is like to be related to the party a person votes for.",
+              "Without rigourous examination, the high income earners  (Northen Territory",
+              "and Australian Capital Territory) were more likely to vote for Labor, ",
+              "compared to other states.",
+              "-",
+              "Education Level seems to be loosely correlated with votes, with perhaps",
+              "the states with the least univesity graduates prefering The Coalition.",
+              "This can be due to many factors such as: increased likelihood of such",
+              "people to be located in rural areas, often considered to have house",
+              "more conservative people, or upbringing which causes people to be raised",
+              "with a great variety on their views on life. Nonetheless, the extreme value",
+              "university graduates in Canberra, witnesses the greatest Labor voters",
+              "This should not be a surprise as university graduates are often theorised to ",
+              "be more likely to have liberal views, of which Canberra has many. In fact, ",
+              "Canberra even has the most votes for The Greens (from the above map),  ",
+              "further showcasing the left-leaning political views in the territory.  "
+            ],
+            "dx": 25,
+            "dy": 0
           }
-        ]
-      }
+        },
+        {
+          "width": 325,
+          "height": 300,
+          "title": "Income vs. Proportional Coalition (vs. Labor) Votes by States",
+          "params": [
+            {
+              "name": "Uni_Graduates",
+              "value": 0,
+              "bind": {
+                "input": "range",
+                "min": 20,
+                "max": 50,
+                "step": 5,
+                "name": "% University Graduates greater than: "
+              }
+            }
+          ],
+          "encoding": {
+            "x": {
+              "aggregate": "max",
+              "field": "Coalition",
+              "type": "quantitative"
+            },
+            "y": {
+              "aggregate": {"argmax": "WeeklyIncome"},
+              "field": "WeeklyIncome",
+              "type": "quantitative"
+            }
+          },
+          "layer": [
+            {
+              "mark": "circle",
+              "encoding": {
+                "x": {
+                  "field": "Coalition",
+                  "type": "quantitative",
+                  "title": "Percentage Coalition Votes",
+                  "scale": {"domain": [15, 75]}
+                },
+                "y": {
+                  "field": "WeeklyIncome",
+                  "type": "quantitative",
+                  "title": "Weekly Income ($)",
+                  "scale": {"domain": [800, 2000]}
+                },
+                "color": {
+                  "field": "Majority_Party",
+                  "title": "Majority Party",
+                  "type": "nominal",
+                  "scale": {
+                    "domain": ["Labor", "Coalition", "Neutral"],
+                    "range": ["#EB4522", "#2F56F3", "#863FF3"]
+                  }
+                },
+                "size": {
+                  "field": "UniversityGraduatesPerc",
+                  "title": "University Graduates (%)",
+                  "type": "quantitative",
+                  "scale": {"domain": [20, 30, 40]}
+                },
+                "tooltip": [
+                  {"field": "State", "type": "nominal"},
+                  {
+                    "field": "WeeklyIncome",
+                    "type": "quantitative",
+                    "format": ",",
+                    "title": "Weekly Income"
+                  },
+                  {
+                    "field": "IncomeRank",
+                    "type": "nominal",
+                    "format": ",",
+                    "title": "Income Rank /8"
+                  },
+                  {
+                    "field": "UniversityGraduatesPerc",
+                    "type": "quantitative",
+                    "format": ",",
+                    "title": "% Uni. Graduates"
+                  },
+                  {
+                    "field": "Coalition",
+                    "type": "nominal",
+                    "format": ",",
+                    "title": "Coalition Votes (%)"
+                  },
+                  {
+                    "field": "Labour",
+                    "type": "nominal",
+                    "format": ",",
+                    "title": "Labor Votes (%)"
+                  }
+                ]
+              }
+            },
+            {
+              "mark": {
+                "type": "text",
+                "align": "left",
+                "baseline": "middle",
+                "dx": 8,
+                "fontSize": 11.5,
+                "fontStyle": "italic"
+              },
+              "encoding": {
+                "text": {"field": "State", "type": "nominal"},
+                "opacity": {
+                  "condition": {
+                    "test": "datum['State'] == 'Northern Territory' || datum['State'] == 'Victoria' || datum['State'] == 'South Australia'",
+                    "value": 0
+                  },
+                  "value": 1
+                }
+              }
+            },
+            {
+              "mark": {
+                "type": "text",
+                "align": "right",
+                "baseline": "top",
+                "dx": -5,
+                "fontSize": 11.5,
+                "fontStyle": "italic"
+              },
+              "encoding": {
+                "text": {"field": "State", "type": "nominal"},
+                "color": {"value": "black"},
+                "opacity": {
+                  "condition": {
+                    "test": "datum['State'] == 'Northern Territory' || datum['State'] == 'Victoria' || datum['State'] == 'South Australia'",
+                    "value": 1
+                  },
+                  "value": 0
+                }
+              }
+            }
+          ]
+        }
+      ]
+    }
   ],
   "config": {}
 }
