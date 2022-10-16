@@ -53,7 +53,7 @@
               "like The Greens."
             ],
             "dx": 25,
-            "dy": 40
+            "dy": 10
           }
         },
         {
@@ -145,14 +145,14 @@
               "The grouped bar charts depicts the percentage breakdown of how",
               "much each state/territory contributed to either The Coalition's or",
               "ALP's vote count, relative to their population. Note that each state's",
-              "bar chart sums to 100% as expected.",
+              "individual bar chart sums to 100% as expected.",
               "-",
               "The visual provides an easy portrayal of the states from which",
               "either major party received proportionally a great/low amount of",
               "their total votes. As an example, Australian Capital Territory (ACT),",
               "relative to other states, was responsible for the greatest proportion",
-              "of Labor votes over The Coalition (16%). On the other hand, Queen-",
-              "slanders were the state most likely to vote for The Coalition (15% of",
+              "of relative Labor votes in Australia (15.1%). On the other hand, Queen-",
+              "slanders were the state most likely to vote for The Coalition (14.7% of",
               "votes).",
               "-",
               "The most neutral state (swing state) was Victoria, with similar votes",
@@ -170,16 +170,16 @@
           "title": "Proportion of States' Contributions to Coalition & ALP Votes per Capita",
           "data": {
             "values": [
-              {"category": "Victoria", "State/Territory": "Labor", "value": 12},
+              {"category": "Victoria", "State/Territory": "Labor", "value": 13},
               {
                 "category": "Victoria",
                 "State/Territory": "Coalition",
-                "value": 13
+                "value": 12.1
               },
               {
                 "category": "New South Wales",
                 "State/Territory": "Labor",
-                "value": 12
+                "value": 11.9
               },
               {
                 "category": "New South Wales",
@@ -189,58 +189,62 @@
               {
                 "category": "Australian Capital Territory",
                 "State/Territory": "Labor",
-                "value": 16
+                "value": 15.1
               },
               {
                 "category": "Australian Capital Territory",
                 "State/Territory": "Coalition",
-                "value": 9
+                "value": 10.2
               },
               {
                 "category": "Queensland",
                 "State/Territory": "Labor",
-                "value": 10
+                "value": 10.1
               },
               {
                 "category": "Queensland",
                 "State/Territory": "Coalition",
-                "value": 15
+                "value": 14.7
               },
               {
                 "category": "Northern Territory",
                 "State/Territory": "Labor",
-                "value": 14
+                "value": 14.1
               },
               {
                 "category": "Northern Territory",
                 "State/Territory": "Coalition",
-                "value": 11
+                "value": 11.1
               },
               {
                 "category": "Western Australia",
                 "State/Territory": "Labor",
-                "value": 13
+                "value": 10.5
               },
               {
                 "category": "Western Australia",
                 "State/Territory": "Coalition",
-                "value": 12
+                "value": 14.2
               },
               {
                 "category": "South Australia",
                 "State/Territory": "Labor",
-                "value": 12
+                "value": 12.3
               },
               {
                 "category": "South Australia",
                 "State/Territory": "Coalition",
-                "value": 13
+                "value": 12.7
               },
-              {"category": "Tasmania", "State/Territory": "Labor", "value": 11},
+              {
+                "category": "Tasmania",
+                "State/Territory": "Labor",
+                "value": 13.1
+              },
               {
                 "category": "Tasmania",
                 "State/Territory": "Coalition",
-                "value": 14
+                "value": 12
               }
             ]
           },
@@ -259,7 +263,17 @@
                 "domain": ["Labor", "Coalition"],
                 "range": ["#EB4522", "#2F56F3"]
               }
-            }
+            },
+            "tooltip": [
+              {"field": "category", "type": "nominal", "title": "State"},
+              {"field": "State/Territory", "type": "nominal", "title": "Party"},
+              {
+                "field": "value",
+                "type": "quantitative",
+                "format": ",",
+                "title": "Relative Proportion of Total Aus. Votes (%)"
+              }
+            ]
           }
         }
       ]
